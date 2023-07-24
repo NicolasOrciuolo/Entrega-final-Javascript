@@ -1,0 +1,24 @@
+/* LOGIN-MAIN ----------------------------------------------------------------------------- */
+.img-login {
+   background-image: url(../img/img-login-4.jpg);
+   background-size: cover;
+   height: 100vh;
+}
+
+.font-login {
+   font-family: 'Lilita One', cursive;
+}
+
+.bg-azul {
+   color: #006d77;
+}
+
+.subrayado:hover {
+   text-decoration: underline;
+}
+
+.boton-login:hover {
+      background-color: #006d77 !important;
+      border-color: #83c5be !important;
+   
+}
