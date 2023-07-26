@@ -21,62 +21,61 @@ export class Recetas {
 }
 
 
-
-export function inicializarRecetas(arrayDeRecetas, imagenes) {
+export function inicializarRecetas(arrayDeRecetas, datosFetched) {
 
    const receta1Obj = {
-      nombre: "Brochette",
-      descripcion: "Brochette de vegetales a la parrilla",
+      nombre: datosFetched[1].strMeal,
+      descripcion: "Pollo con papas y champigñones",
       precio: 2800,
-      foto: imagenes[1]
+      foto: datosFetched[1].strMealThumb
    };
    const receta2Obj = {
-      nombre: "Burger",
-      descripcion: "Hamburguesa con papas fritas",
+      nombre: datosFetched[2].strMeal,
+      descripcion: "Ensalada Primavera con pollo",
       precio: 3000,
-      foto: imagenes[2]
+      foto: datosFetched[2].strMealThumb
    };
    const receta3Obj = {
-      nombre: "Ensalada",
-      descripcion: "Ensalada fresca de hojas verdes con palta y pollo",
+      nombre: datosFetched[3].strMeal,
+      descripcion: "Pollo a la vasca",
       precio: 2800,
-      foto: imagenes[3]
+      foto: datosFetched[3].strMealThumb
    };
    const receta4Obj = {
-      nombre: "Guiso",
-      descripcion: "Guiso de calabaza",
+      nombre: datosFetched[4].strMeal,
+      descripcion: "Arroz con pollo",
       precio: 3500,
-      foto: imagenes[4]
+      foto: datosFetched[4].strMealThumb
    };
    const receta5Obj = {
-      nombre: "Pasta",
-      descripcion: "Pasta fresca con salsa de vegetales",
+      nombre: datosFetched[5].strMeal,
+      descripcion: "Pollo al curry",
       precio: 2500,
-      foto: imagenes[5]
+      foto: datosFetched[5].strMealThumb
    };
    const receta6Obj = {
-      nombre: "Pizza",
-      descripcion: "Pizza capresse",
+      nombre: datosFetched[6].strMeal,
+      descripcion: "Pollo frito",
       precio: 3300,
-      foto: imagenes[6]
+      foto: datosFetched[6].strMealThumb
    };
    const receta7Obj = {
-      nombre: "Pollo con vegetales",
-      descripcion: "Pollo al horno relleno con vegetales",
+      nombre: datosFetched[7].strMeal,
+      descripcion: "Ensalada oriental de pollo",
       precio: 3600,
-      foto: imagenes[7]
+      foto: datosFetched[7].strMealThumb
    };
    const receta8Obj = {
-      nombre: "Salmon",
-      descripcion: "Salmon al horno acompañado de ensalada continental",
+      nombre: datosFetched[8].strMeal,
+      descripcion: "Fideos con pollo y espinaca",
       precio: 4200,
-      foto: imagenes[8]
+      foto: datosFetched[8].strMealThumb
    };
    const receta9Obj = {
-      nombre: "Sandwich",
-      descripcion: "Sandwich de pollo en pan de miga",
+      nombre: datosFetched[9].strMeal,
+      descripcion: "Pollo piri-piri",
       precio: 3000,
-      foto: imagenes[9]
+      foto: datosFetched[9].strMealThumb
    };
 
    const receta1 = new Recetas(receta1Obj);

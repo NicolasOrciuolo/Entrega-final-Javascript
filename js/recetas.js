@@ -5,7 +5,7 @@ import { bbdd, inicializarRecetas, Recetas } from './bbdd.js'
 
 // PAGINA CON RECETAS PARA ELEGIR
 export const arrayDeRecetas = [];
-export const imagenes = [];
+export const datosFetched = [];
 const menu = document.querySelector("#menu"); //Atrapo el div con id=menu en menu.html
 export const arrayCarrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
@@ -21,11 +21,12 @@ function getImage(done) {
 }
 
 getImage(data => {
+   console.log(data.meals)
    for (let i = 0; i < data.meals.length; i++) {
-      imagenes[i] = data.meals[i].strMealThumb;
+      datosFetched[i] = data.meals[i];
    }
 
-   inicializarRecetas(arrayDeRecetas, imagenes); //Push de las recetas de la bbdd al arrayDeRecetas
+   inicializarRecetas(arrayDeRecetas, datosFetched); //Push de las recetas de la bbdd al arrayDeRecetas
 
    arrayDeRecetas.forEach((el) => {
       const tarjeta = document.createElement("div");
