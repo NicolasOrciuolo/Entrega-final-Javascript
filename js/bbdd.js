@@ -11,7 +11,7 @@ export const bbdd = [
 ]
 
 export class Recetas {
-   constructor(recetaRecibida){
+   constructor(recetaRecibida) {
       const { nombre, descripcion, precio, foto } = recetaRecibida;
       this.nombre = nombre;
       this.descripcion = descripcion;
@@ -20,60 +20,63 @@ export class Recetas {
    }
 }
 
-export function inicializarRecetas(arrayDeRecetas) {
+
+
+export function inicializarRecetas(arrayDeRecetas, imagenes) {
+
    const receta1Obj = {
       nombre: "Brochette",
       descripcion: "Brochette de vegetales a la parrilla",
       precio: 2800,
-      foto: "../img/Brochette.jpg"
+      foto: imagenes[1]
    };
    const receta2Obj = {
       nombre: "Burger",
       descripcion: "Hamburguesa con papas fritas",
       precio: 3000,
-      foto: "../img/Burger.jpg"
+      foto: imagenes[2]
    };
    const receta3Obj = {
       nombre: "Ensalada",
       descripcion: "Ensalada fresca de hojas verdes con palta y pollo",
       precio: 2800,
-      foto: "../img/Ensalada.jpg"
+      foto: imagenes[3]
    };
    const receta4Obj = {
       nombre: "Guiso",
       descripcion: "Guiso de calabaza",
       precio: 3500,
-      foto: "../img/Guiso.jpg"
+      foto: imagenes[4]
    };
    const receta5Obj = {
       nombre: "Pasta",
       descripcion: "Pasta fresca con salsa de vegetales",
       precio: 2500,
-      foto: "../img/Pasta.jpg"
+      foto: imagenes[5]
    };
    const receta6Obj = {
       nombre: "Pizza",
       descripcion: "Pizza capresse",
       precio: 3300,
-      foto: "../img/Pizza.jpg"
+      foto: imagenes[6]
    };
    const receta7Obj = {
       nombre: "Pollo con vegetales",
       descripcion: "Pollo al horno relleno con vegetales",
       precio: 3600,
-      foto: "../img/Pollo.jpg"
+      foto: imagenes[7]
    };
    const receta8Obj = {
       nombre: "Salmon",
       descripcion: "Salmon al horno acompañado de ensalada continental",
       precio: 4200,
-      foto: "../img/Salmon.jpg"
+      foto: imagenes[8]
    };
    const receta9Obj = {
       nombre: "Sandwich",
       descripcion: "Sandwich de pollo en pan de miga",
       precio: 3000,
-      foto: "../img/Sandwich.jpg"
+      foto: imagenes[9]
    };
 
    const receta1 = new Recetas(receta1Obj);
