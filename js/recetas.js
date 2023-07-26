@@ -21,7 +21,6 @@ function getImage(done) {
 }
 
 getImage(data => {
-   console.log(data.meals)
    for (let i = 0; i < data.meals.length; i++) {
       datosFetched[i] = data.meals[i];
    }
@@ -58,6 +57,10 @@ getImage(data => {
             title: el.nombre + ' añadida al carrito',
             timer: 1500
          })
+
+         const cantidadCarrito = document.querySelector("#cantidadPedido");
+         cantidadCarrito.innerText = `Cantidad de platos: ${arrayCarrito.length}`;
+
       })
 
       tarjeta.appendChild(buttonAgregar);
@@ -84,13 +87,12 @@ getImage(data => {
                         <div class="col">
                            <div class="card w-70 text-center">
                               <div class="card-body">
-                                    <h1 class="card-title fs-3">${el.nombre}</h1>
-                                    <h2 class="card-text fs-5">Precio: $${el.precio}</h2>
-                                    <p class="card-text">${el.descripcion}</p>
-                                 </div>
-   
+                                 <h1 class="card-title fs-3">${el.nombre}</h1>
+                                 <h2 class="card-text fs-5">Precio: $${el.precio}</h2>
+                                 <p class="card-text">${el.descripcion}</p>
                               </div>
                            </div>
+                        </div>
       `
          pedido.appendChild(orden);
       })
