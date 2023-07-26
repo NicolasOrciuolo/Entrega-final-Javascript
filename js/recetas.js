@@ -80,35 +80,19 @@ getImage(data => {
       tituloPagina.innerHTML = `Su pedido:`
       pedido.appendChild(tituloPagina);
 
-
-      // arrayCarrito.forEach((el) => {
-      //    const orden = document.createElement("div");
-      //    orden.innerHTML = ` 
-      //                   <div class="col">
-      //                      <div class="card w-70 text-center">
-      //                         <div class="card-body">
-      //                            <h1 class="card-title fs-3">${el.nombre}</h1>
-      //                            <h2 class="card-text fs-5">Precio: $${el.precio}</h2>
-      //                            <p class="card-text">${el.descripcion}</p>
-      //                         </div>
-      //                      </div>
-      //                   </div>
-      // `
-      //    pedido.appendChild(orden);
-      // })
-
       let tableBody = ``;
       arrayCarrito.forEach((el) => {
          tableBody += `<tr>
          <td>${el.nombre}</td>
          <td>${el.descripcion}</td>
          <td>$ ${el.precio}</td>
+         <td><button class="btn btn-outline-danger" id="btnborrar">Borrar</button></td>
          </tr>`;
       });
       console.log(tableBody);
       document.getElementById("tabla").innerHTML = tableBody;
 
-
+      const botonBorrar = document.getElementById("btnborrar");
 
 
       let sumaPedido = arrayCarrito.reduce((acumulador, el) => acumulador + el.precio, 0);
