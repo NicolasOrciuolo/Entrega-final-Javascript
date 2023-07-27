@@ -10,6 +10,7 @@ const menu = document.querySelector("#menu"); //Atrapo el div con id=menu en men
 export const arrayCarrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 
+//BUSCO IMAGENES EN UNA API
 function getImage(done) {
    const results = fetch('https://www.themealdb.com/api/json/v1/1/filter.php?i=chicken');
 
@@ -74,6 +75,15 @@ getImage(data => {
    botonCarrito.addEventListener("click", () => {
       menu.innerHTML = ``;
 
+      let encabezadoTabla = `
+                        <tr>
+                           <th>Receta</th>
+                           <th>Descripción</th>
+                           <th>Precio</th>
+                        </tr>
+                        `;
+      document.getElementById("tablaPrincipal").innerHTML = encabezadoTabla;
+
       const pedido = document.querySelector("#pedido"); //Atrapo el div de id=pedido
 
       const tituloPagina = document.createElement("h1");
@@ -90,8 +100,6 @@ getImage(data => {
 
       });
       document.getElementById("tabla").innerHTML = tableBody;
-
-
 
       let sumaPedido = arrayCarrito.reduce((acumulador, el) => acumulador + el.precio, 0);
 
@@ -134,7 +142,42 @@ getImage(data => {
 
 
       //ELIMINAR UN PEDIDO
-      
+      eliminarPedido.addEventListener("click", async () => {
+
+         const { value: pedidoAEliminar } = await Swal.fire({
+            input: 'text',
+            inputLabel: 'Eliminar',
+            inputPlaceholder: 'Ingrese el nombre del pedido a eliminar'
+         })
+
+         const pedidoEliminado = false;
+         if (pedidoAEliminar) {
+            for (let i = 0; i < arrayCarrito.length; i++) {
+               if (arrayCarrito[i].nombre == pedidoAEliminar) {
+                  arrayCarrito.splice(i, 1);
+                  localStorage.setItem("carrito", JSON.stringify(arrayCarrito));
+                  pedidoEliminado = true;
+
+                  Swal.fire({
+                     position: 'center',
+                     icon: 'success',
+                     title: `${pedidoAEliminar} eliminado con éxito!`,
+                     timer: 3000,
+                  })
+                  document.location.reload();
+               }
+            }
+         }
+
+         if (!pedidoEliminado) {
+            Swal.fire({
+               position: 'center',
+               icon: 'error',
+               title: `No se encontró el pedido a eliminar`,
+               timer: 3000
+            })
+         }
+      })
 
 
 
