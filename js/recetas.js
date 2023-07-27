@@ -86,13 +86,11 @@ getImage(data => {
          <td>${el.nombre}</td>
          <td>${el.descripcion}</td>
          <td>$ ${el.precio}</td>
-         <td><button class="btn btn-outline-danger" id="btnborrar">Borrar</button></td>
          </tr>`;
+
       });
-      console.log(tableBody);
       document.getElementById("tabla").innerHTML = tableBody;
 
-      const botonBorrar = document.getElementById("btnborrar");
 
 
       let sumaPedido = arrayCarrito.reduce((acumulador, el) => acumulador + el.precio, 0);
@@ -103,14 +101,23 @@ getImage(data => {
                      <h2>
                         Total del pedido: $ ${sumaPedido}
                      </h2>
-   `
+                     `
+      pedido.appendChild(total);
+
       const confirmarCompra = document.createElement("button");
       confirmarCompra.classList.add("col-2", "btn", "btn-outline-success", "text-center");
       confirmarCompra.innerText = "Confirmar Compra";
 
-      pedido.appendChild(total);
       total.appendChild(confirmarCompra);
 
+      const eliminarPedido = document.createElement("button");
+      eliminarPedido.classList.add("col-2", "btn", "btn-outline-danger", "text-center");
+      eliminarPedido.innerText = "Eliminar un pedido";
+
+      total.appendChild(eliminarPedido);
+
+
+      //CONFIRMAR COMPRA
       confirmarCompra.addEventListener("click", () => {
          localStorage.setItem("carrito", JSON.stringify(""));
 
@@ -124,6 +131,14 @@ getImage(data => {
          setTimeout('document.location.reload()', 3000);
 
       })
+
+
+      //ELIMINAR UN PEDIDO
+      
+
+
+
+
 
    })
 
