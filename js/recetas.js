@@ -150,21 +150,23 @@ getImage(data => {
             inputPlaceholder: 'Ingrese el nombre del pedido a eliminar'
          })
 
+
+         
+
          const pedidoEliminado = false;
          if (pedidoAEliminar) {
             for (let i = 0; i < arrayCarrito.length; i++) {
                if (arrayCarrito[i].nombre == pedidoAEliminar) {
                   arrayCarrito.splice(i, 1);
                   localStorage.setItem("carrito", JSON.stringify(arrayCarrito));
-                  pedidoEliminado = true;
-
                   Swal.fire({
                      position: 'center',
                      icon: 'success',
                      title: `${pedidoAEliminar} eliminado con éxito!`,
                      timer: 3000,
                   })
-                  document.location.reload();
+                  pedidoEliminado = true;
+                  setTimeout('document.location.reload()', 1000);
                }
             }
          }
@@ -178,11 +180,6 @@ getImage(data => {
             })
          }
       })
-
-
-
-
-
    })
 
 })
